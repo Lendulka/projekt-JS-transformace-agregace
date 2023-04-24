@@ -53,6 +53,7 @@ const shoppingList = (items) => {
             <div class="item__amount">${item.amount}</div>
             </li>`
         )
+        .join('')
 }
 shoppingList(items)
 

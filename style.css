@@ -26,3 +26,7 @@ html {
 .nonbinary {
   color: orange;
 }
+
+.item {
+  margin-top: 1rem;
+}

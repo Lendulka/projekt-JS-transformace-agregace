@@ -63,53 +63,20 @@ console.log(list)
 
 //2 AGREGACE
 
-const listItem = persons
-    .filter(person => person.age > 18)
-    .map(person => [`${person.name} (${person.age})`].join(' '))
+const createListPersons = (persons) => {
+    const ulElm = document.querySelector('.listPersons')
+    persons
+        .filter(person => person.age >= 18)
+        .map(person => {
+            if (person.gender === 'male' || person.gender === 'female') {
+                ulElm.innerHTML += `<li class="${person.gender}">${person.name} (${person.age})</li>`
+            }
+            else { ulElm.innerHTML += `<li class="nonbinary">${person.name} (${person.age})</li>` }
+        })
+        .join('')
+}
+createListPersons(persons)
 
 
-console.log(listItem[0])
-
-
-const ulElm = document.createElement('ul')
-document.body.appendChild(ulElm)
-
-
-
-listItem.forEach((item) => {
-    const liElm = document.createElement('li')
-    ulElm.appendChild(liElm)
-    liElm.innerHTML = item
-
-
-
-
-
-
-    /*
-    if (person.gender === 'male') {
-        liElm.classList.add('male')
-    } else if (person.gender === 'female') {
-        liElm.classList.add('female')
-    } else {
-        liElm.classList.add('nonbinary')
-    }*/
-
-})
-
-
-
-
-/*
-const ulElm = document.createElement('ul')
-document.body.appendChild(ulElm)
-
-const list = persons.map(person => {
-    const liElm = document.createElement('li')
-    ulElm.appendChild(liElm)
-    liElm.innerHTML = `${person.name} (${person.age})`
-})
-console.log(list)
-*/
 
 
